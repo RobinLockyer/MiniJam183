@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://6ka34578aims"]
+[gd_scene load_steps=4 format=3 uid="uid://6ka34578aims"]
 
 [ext_resource type="Script" uid="uid://bg27vj4e8nrn2" path="res://scripts/level.gd" id="1_uhqny"]
 [ext_resource type="LabelSettings" uid="uid://k2phke6dm5xs" path="res://resources/LevelTargetLabelSettings.tres" id="2_k5jlv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k5jlv"]
+font_size = 30
 
 [node name="Level" type="Control" node_paths=PackedStringArray("label_target_value", "label_current_value", "hand_container")]
 layout_mode = 3
@@ -54,3 +57,32 @@ label_settings = ExtResource("2_k5jlv")
 
 [node name="HandContainer" type="BoxContainer" parent="VBoxContainer"]
 layout_mode = 2
+
+[node name="VictoryContainer" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.5
+offset_top = -29.0
+offset_right = 39.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VictoryContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VictoryContainer/VBoxContainer"]
+layout_mode = 2
+text = "You Win!"
+label_settings = SubResource("LabelSettings_k5jlv")
+
+[node name="Button" type="Button" parent="VictoryContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[connection signal="pressed" from="VictoryContainer/VBoxContainer/Button" to="." method="continue_to_shop"]

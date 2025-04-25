@@ -25,6 +25,11 @@ func card_clicked(card: Card) -> void:
 	current = card.operation.call(current, card.value)
 	update_current_value_label()
 	hand_container.remove_child(card)
+	if target == current:
+		$VictoryContainer.visible = true
 	
 func update_current_value_label():
 	label_current_value.text = str(current)
+	
+func continue_to_shop() -> void:
+	get_tree().change_scene_to_file("res://scenes/Shop.tscn")
