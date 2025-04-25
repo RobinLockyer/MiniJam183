@@ -85,4 +85,9 @@ label_settings = SubResource("LabelSettings_k5jlv")
 layout_mode = 2
 text = "Continue"
 
+[node name="ViewDeckButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
 [connection signal="pressed" from="VictoryContainer/VBoxContainer/Button" to="." method="continue_to_shop"]
