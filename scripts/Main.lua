@@ -1,5 +1,5 @@
 local Main = {
-	extends = Node2D,
+	extends = Control,
 }
 
 function Main:_ready()
