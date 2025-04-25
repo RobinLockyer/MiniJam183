@@ -7,7 +7,7 @@ function Main:_ready()
 end
 
 function Main:_on_play_button_pressed()
-	self:get_tree():change_scene_to_file("res://scenes/LevelMap.tscn")
+	self:get_tree():change_scene_to_file("res://scenes/Level.tscn")
 end
 
 function Main:_on_settings_button_pressed()

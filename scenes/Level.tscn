@@ -1,3 +1,56 @@
-[gd_scene format=3 uid="uid://6ka34578aims"]
+[gd_scene load_steps=3 format=3 uid="uid://6ka34578aims"]
 
-[node name="Level" type="Node2D"]
+[ext_resource type="Script" uid="uid://bg27vj4e8nrn2" path="res://scripts/level.gd" id="1_uhqny"]
+[ext_resource type="LabelSettings" uid="uid://k2phke6dm5xs" path="res://resources/LevelTargetLabelSettings.tres" id="2_k5jlv"]
+
+[node name="Level" type="Control" node_paths=PackedStringArray("label_target_value", "label_current_value", "hand_container")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uhqny")
+label_target_value = NodePath("VBoxContainer/TargetContainer/label_target_value")
+label_current_value = NodePath("VBoxContainer/CurrentContainer/label_current_value")
+hand_container = NodePath("VBoxContainer/HandContainer")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -41.0
+offset_right = 70.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TargetContainer" type="BoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="label_target" type="Label" parent="VBoxContainer/TargetContainer"]
+layout_mode = 2
+text = "Target:"
+label_settings = ExtResource("2_k5jlv")
+
+[node name="label_target_value" type="Label" parent="VBoxContainer/TargetContainer"]
+layout_mode = 2
+label_settings = ExtResource("2_k5jlv")
+
+[node name="CurrentContainer" type="BoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="label_current" type="Label" parent="VBoxContainer/CurrentContainer"]
+layout_mode = 2
+text = "Current:"
+
+[node name="label_current_value" type="Label" parent="VBoxContainer/CurrentContainer"]
+layout_mode = 2
+label_settings = ExtResource("2_k5jlv")
+
+[node name="HandContainer" type="BoxContainer" parent="VBoxContainer"]
+layout_mode = 2

@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://6ka34578aims"]
+
+[ext_resource type="Script" uid="uid://bg27vj4e8nrn2" path="res://scenes/level.gd" id="1_uhqny"]
+
+[node name="Level" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uhqny")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="label_target" type="Label" parent="BoxContainer"]
+layout_mode = 2
+text = "Target:"
+
+[node name="label_target_value" type="Label" parent="BoxContainer"]
+layout_mode = 2
