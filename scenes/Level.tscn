@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://6ka34578aims"]
 
-[ext_resource type="Script" uid="uid://bg27vj4e8nrn2" path="res://scripts/level.gd" id="1_uhqny"]
+[ext_resource type="Script" uid="uid://dge67fd5v003g" path="res://scripts/Level.gd" id="1_k5jlv"]
 [ext_resource type="LabelSettings" uid="uid://k2phke6dm5xs" path="res://resources/LevelTargetLabelSettings.tres" id="2_k5jlv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k5jlv"]
@@ -13,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_uhqny")
+script = ExtResource("1_k5jlv")
 label_target_value = NodePath("VBoxContainer/TargetContainer/label_target_value")
 label_current_value = NodePath("VBoxContainer/CurrentContainer/label_current_value")
 hand_container = NodePath("VBoxContainer/HandContainer")
