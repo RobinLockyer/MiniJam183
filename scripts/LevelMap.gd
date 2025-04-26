@@ -27,7 +27,7 @@ func _ready():
 	update_level_buttons()
 	
 func update_level_buttons():
-	var current_level = 4
+	var current_level = SaveData.current_level
 
 	for i in range(level_buttons.size()):
 		var button = level_buttons[i]
