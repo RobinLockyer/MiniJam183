@@ -25,9 +25,9 @@ func _ready():
 			button.connect("pressed", Callable(self, "_on_level_pressed").bind(i))
 
 	update_level_buttons()
-	
+
 func update_level_buttons():
-	var current_level = 4
+	var current_level = SaveData.current_level
 
 	for i in range(level_buttons.size()):
 		var button = level_buttons[i]
@@ -35,57 +35,45 @@ func update_level_buttons():
 		var value = level_data["value"]
 		var is_boss = level_data["is_boss"]
 
-		var unlocked = (i <= current_level + 1)
+		var is_completed = (i < current_level)
 		var is_current = (i == current_level)
 		var is_next = (i == current_level + 1)
-		var is_completed = (i < current_level)
+		var is_unlocked = (i <= current_level + 1)
 
-		if unlocked:
+		# Default (Locked)
+		button.disabled = true
+		button.mouse_default_cursor_shape = Control.CURSOR_ARROW
+		button.tooltip_text = "Locked!"
+		button.text = "?"
+		button.modulate = Color(1, 1, 1, 0.5) # Faded grey
+
+		if is_unlocked:
 			button.text = "Level %d\nValue: %d" % [i + 1, value]
 			if is_boss:
-				button.text += "\n (Boss)"
+				button.text += "\n(Boss)"
 
 			if is_completed:
 				button.modulate = Color(0.4, 1, 0.4, 1) # Green
-			elif is_current:
-				button.modulate = Color(0.4, 0.6, 1, 1) # Blue
-			elif is_next:
-				button.modulate = Color(1, 1, 1, 1) # White
-
-			# Clickable only if current
-			button.disabled = not is_current
-
-			# Cursor and tooltip
-			if is_current:
-				button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-				button.tooltip_text = "This is the current level!"
-			elif is_completed:
-				button.mouse_default_cursor_shape = Control.CURSOR_ARROW
 				button.tooltip_text = "Completed!"
+			elif is_current:
+				button.tooltip_text = "This is the current level!"
+				button.disabled = false
+				button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+				# Border
+				var style = StyleBoxFlat.new()
+				style.set_draw_center(true)
+				style.border_color = Color(1, 0.3, 0.4, 1) if is_boss else Color(0.4, 1, 0.4, 1) # Green border or Red boss border
+				style.border_width_top = 4
+				style.border_width_bottom = 4
+				style.border_width_left = 4
+				style.border_width_right = 4
+				button.add_theme_stylebox_override("normal", style)
+				button.add_theme_stylebox_override("hover", style)
+				button.add_theme_stylebox_override("pressed", style)
+				button.add_theme_stylebox_override("focus", style)
 			elif is_next:
-				button.mouse_default_cursor_shape = Control.CURSOR_ARROW
+				button.modulate = Color(1, 1, 1, 1) # White for next
 				button.tooltip_text = "This is the next level!"
-		else:
-			# If locked
-			button.disabled = true
-			button.text = "?"
-			button.modulate = Color(1, 1, 1, 0.5)
-			button.mouse_default_cursor_shape = Control.CURSOR_ARROW
-			button.tooltip_text = "Locked!"
-			
-		if is_boss:
-			var style = StyleBoxFlat.new()
-			style.bg_color = Color(1, 0.3, 0.3, 1)
-			style.border_color = Color(1, 0.3, 0.3) # Red border
-			style.border_width_top = 4
-			style.border_width_bottom = 4
-			style.border_width_left = 4
-			style.border_width_right = 4
-
-			button.add_theme_stylebox_override("normal", style)
-			button.add_theme_stylebox_override("hover", style)
-			button.add_theme_stylebox_override("pressed", style)
-			button.add_theme_stylebox_override("focus", style)
 
 func _on_level_pressed(level_index: int):
 	print("Clicked level:", level_index)
