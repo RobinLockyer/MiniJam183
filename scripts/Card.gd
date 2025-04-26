@@ -6,10 +6,14 @@ static var operations: Array[Callable] = [
 	add, subtract, multiply, divide
 ]
 static func create_random() -> Card:
-	var card = Card.new()
-	card.value = randi_range(1, 9)
-	card.operation = operations.pick_random()
-	return card
+	return Card.new(
+		randi_range(1, 9),
+		operations.pick_random()
+	)
+	
+func _init(val: int, op :Callable):
+	value = val
+	operation = op
 
 static func add(a: int, b: int) -> int:
 	return a + b

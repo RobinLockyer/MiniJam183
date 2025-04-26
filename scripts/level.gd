@@ -9,17 +9,14 @@ var is_boss: bool = false
 var target_number: int = 0
 var current: float = 0
 var draw_pile: Array[Card]
-var deck_size: int = 15
-var hand_size: int = 5
+var hand_size: int = 6
 var error_margin: int = 0
 
 func _ready() -> void:
 	label_target_value.text = str(target_number)
 	update_current_value_label()
+	draw_pile = SaveData.deck.duplicate()
 	draw_pile.shuffle()
-	for i in deck_size:
-		var card = Card.create_random()
-		draw_pile.append(card)
 	for i in hand_size:
 		var card_display = CardDisplay.new()
 		card_display.card = draw_pile.pop_front()
