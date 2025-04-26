@@ -15,6 +15,10 @@ run/main_scene="uid://cr2a5utj6wen8"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://resources/icon.svg"
 
+[autoload]
+
+SaveData="*res://scripts/SaveData.gd"
+
 [display]
 
 window/size/resizable=false

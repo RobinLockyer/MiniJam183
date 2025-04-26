@@ -1,10 +1,11 @@
 extends Control
 
-var current_level: int = 2
+var current_level: int = 0
 var level_buttons: Array
 var boss_levels: Array = [4, 8]
 
 func _ready():
+	current_level = SaveData.current_level
 	level_buttons = [
 		$CenterContainer/MarginContainer/GridContainer/Level1Button,
 		$CenterContainer/MarginContainer/GridContainer/Level2Button,
