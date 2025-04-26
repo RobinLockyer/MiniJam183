@@ -18,15 +18,18 @@ func _ready() -> void:
 	draw_pile.shuffle()
 	for i in deck_size:
 		var card = Card.create_random()
-		card.pressed.connect(card_clicked.bind(card))
 		draw_pile.append(card)
 	for i in hand_size:
-		hand_container.add_child(draw_pile.pop_front())
+		var card_display = CardDisplay.new()
+		card_display.card = draw_pile.pop_front()
+		card_display.pressed.connect(card_clicked.bind(card_display))
+		hand_container.add_child(card_display)
+		
 	
-func card_clicked(card: Card) -> void:
-	current = card.operation.call(current, card.value)
+func card_clicked(card_display: CardDisplay) -> void:
+	current = card_display.card.operation.call(current, card_display.card.value)
 	update_current_value_label()
-	hand_container.remove_child(card)
+	hand_container.remove_child(card_display)
 	if target_number == current:
 		$VictoryContainer.visible = true
 	
@@ -35,3 +38,6 @@ func update_current_value_label():
 	
 func continue_to_shop() -> void:
 	get_tree().change_scene_to_file("res://scenes/Shop.tscn")
+	
+func open_deckview() ->void:
+	DeckView.open(self, draw_pile)
