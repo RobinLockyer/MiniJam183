@@ -47,6 +47,10 @@ grow_vertical = 2
 layout_mode = 2
 text = "Play"
 
+[node name="DeckButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Deck"
+
 [node name="SettingsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Settings"
@@ -56,4 +60,5 @@ stream = ExtResource("2_rvslj")
 autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/DeckButton" to="." method="_on_deck_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
