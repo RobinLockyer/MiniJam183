@@ -1,4 +1,3 @@
-extends Button
 class_name Card
 
 var value: int = 1
@@ -6,10 +5,6 @@ var operation: Callable = add
 static var operations: Array[Callable] = [
 	add, subtract, multiply, divide
 ]
-
-func _ready() -> void:
-	text = str(operation, " ", value)
-
 static func create_random() -> Card:
 	var card = Card.new()
 	card.value = randi_range(1, 9)
@@ -28,3 +23,16 @@ static func multiply(a: int, b: int) -> int:
 static func divide(a: int, b: int) -> int:
 	@warning_ignore("integer_division")
 	return a / b
+	
+func _to_string() -> String:
+	var opStr = "Unknown Op"
+	match operation:
+		add:
+			opStr = "+"
+		subtract:
+			opStr = "-"
+		multiply:
+			opStr = "x"
+		divide:
+			opStr = "/"
+	return str(opStr, " ", value)

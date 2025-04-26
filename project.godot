@@ -17,6 +17,7 @@ config/icon="res://resources/icon.svg"
 
 [display]
 
+window/size/resizable=false
 window/size/borderless=true
 
 [rendering]

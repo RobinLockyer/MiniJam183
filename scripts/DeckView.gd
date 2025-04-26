@@ -6,12 +6,18 @@ const deck_view_scene: Resource = preload("res://scenes/DeckView.tscn")
 
 var deck: Array[Card]
 
-static func open(parent: Node) -> void:
-	parent.add_child(deck_view_scene.instantiate())
+static func open(parent: Node, cardList: Array[Card]) -> void:
+	print("open")
+	var deckview = deck_view_scene.instantiate()
+	deckview.deck = cardList
+	parent.add_child(deckview)
 
-func _ready() -> void:
+func _enter_tree() -> void:
 	for card in deck:
-		$DeckDisplayContainer.add_child(card)
+		var card_display = CardDisplay.new()
+		card_display.card = card
+		$PanelContainer/DeckDisplayContainer.add_child(card_display)
 
 func close() -> void:
 	get_parent().remove_child(self)
+	
