@@ -34,6 +34,8 @@ func card_clicked(card_display: CardDisplay) -> void:
 		var points = error_margin - target_diff + level_index + 1
 		SaveData.points += points
 		$VictoryContainer/VBoxContainer/BoxContainer/points_value_label.text = str(points)
+		SaveData.current_level += 1
+		SaveData.save_game()
 		
 	
 func update_current_value_label():
