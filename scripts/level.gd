@@ -35,6 +35,7 @@ func card_clicked(card_display: CardDisplay) -> void:
 	if target_diff <= error_margin:
 		$VictoryContainer.visible = true
 		var points = error_margin - target_diff + level_index + 1
+		SaveData.points += points
 		$VictoryContainer/VBoxContainer/BoxContainer/points_value_label.text = str(points)
 		
 	
