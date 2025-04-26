@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bxwrmg5r0en12"]
 
-[ext_resource type="Script" path="res://scripts/LevelMap.gd" id="1_72jfs"]
+[ext_resource type="Script" uid="uid://c61i5n7tl01ku" path="res://scripts/LevelMap.gd" id="1_72jfs"]
 
 [node name="LevelMap" type="Control"]
 layout_mode = 3

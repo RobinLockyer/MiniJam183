@@ -27,6 +27,7 @@ func card_clicked(card: Card) -> void:
 	current = card.operation.call(current, card.value)
 	update_current_value_label()
 	hand_container.remove_child(card)
+	$VictoryContainer.visible = true
 	
 func update_current_value_label():
 	label_current_value.text = str(current)
