@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyobxc5ktindl"]
+
+[ext_resource type="Script" uid="uid://c2g60u1cqbb0d" path="res://scripts/FloatingChar.gd" id="1_8t6jt"]
+
+[node name="FloatingChar" type="Label"]
+offset_right = 1.0
+offset_bottom = 23.0
+script = ExtResource("1_8t6jt")
