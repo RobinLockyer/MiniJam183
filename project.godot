@@ -18,6 +18,7 @@ config/icon="res://resources/icon.svg"
 [autoload]
 
 SaveData="*res://scripts/SaveData.gd"
+Colours="*res://scripts/Colours.gd"
 
 [display]
 
