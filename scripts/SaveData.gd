@@ -7,6 +7,23 @@ var current_level: int = 0
 var points: int = 0
 var levels: Array = []
 var boss_levels: Array = [4, 8]
+var deck: Array[Card] = [
+	Card.new(1, Card.add),
+	Card.new(2, Card.add),
+	Card.new(3, Card.add),
+	Card.new(4, Card.add),
+	Card.new(5, Card.add),
+	Card.new(6, Card.add),
+	Card.new(7, Card.add),
+	Card.new(8, Card.add),
+	Card.new(9, Card.add),
+	Card.new(1, Card.subtract),
+	Card.new(2, Card.subtract),
+	Card.new(2, Card.multiply),
+	Card.new(2, Card.multiply),
+	Card.new(3, Card.multiply),
+	Card.new(2, Card.divide),
+]
 
 func save_game() -> void:
 	config.set_value("game", "current_level", current_level)
