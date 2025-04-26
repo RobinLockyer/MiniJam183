@@ -6,15 +6,15 @@ var boss_levels: Array = [4, 8]
 
 func _ready():
 	level_buttons = [
-		$MarginContainer/GridContainer/Level1Button,
-		$MarginContainer/GridContainer/Level2Button,
-		$MarginContainer/GridContainer/Level3Button,
-		$MarginContainer/GridContainer/Level4Button,
-		$MarginContainer/GridContainer/BossButton,
-		$MarginContainer/GridContainer/Level6Button,
-		$MarginContainer/GridContainer/Level7Button,
-		$MarginContainer/GridContainer/Level8Button,
-		$MarginContainer/GridContainer/FinalBossButton
+		$CenterContainer/MarginContainer/GridContainer/Level1Button,
+		$CenterContainer/MarginContainer/GridContainer/Level2Button,
+		$CenterContainer/MarginContainer/GridContainer/Level3Button,
+		$CenterContainer/MarginContainer/GridContainer/Level4Button,
+		$CenterContainer/MarginContainer/GridContainer/BossButton,
+		$CenterContainer/MarginContainer/GridContainer/Level6Button,
+		$CenterContainer/MarginContainer/GridContainer/Level7Button,
+		$CenterContainer/MarginContainer/GridContainer/Level8Button,
+		$CenterContainer/MarginContainer/GridContainer/FinalBossButton
 	]
 
 	for i in range(level_buttons.size()):
