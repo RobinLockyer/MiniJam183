@@ -11,6 +11,7 @@ var current: float = 0
 var draw_pile: Array[Card]
 var deck_size: int = 15
 var hand_size: int = 5
+var error_margin: int = 0
 
 func _ready() -> void:
 	label_target_value.text = str(target_number)
@@ -30,8 +31,12 @@ func card_clicked(card_display: CardDisplay) -> void:
 	current = card_display.card.operation.call(current, card_display.card.value)
 	update_current_value_label()
 	hand_container.remove_child(card_display)
-	if target_number == current:
+	var target_diff: int = abs(target_number - current)
+	if target_diff <= error_margin:
 		$VictoryContainer.visible = true
+		var points = error_margin - target_diff + level_index + 1
+		$VictoryContainer/VBoxContainer/BoxContainer/points_value_label.text = str(points)
+		
 	
 func update_current_value_label():
 	label_current_value.text = str(current)
