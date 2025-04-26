@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cr2a5utj6wen8"]
+[gd_scene load_steps=3 format=3 uid="uid://cr2a5utj6wen8"]
 
 [ext_resource type="Script" uid="uid://cpcr1po58rplc" path="res://scripts/Main.gd" id="1_elqb8"]
+[ext_resource type="AudioStream" uid="uid://4ok60fftg8h" path="res://resources/menu.mp3" id="2_rvslj"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -49,6 +50,10 @@ text = "Play"
 [node name="SettingsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Settings"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_rvslj")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
