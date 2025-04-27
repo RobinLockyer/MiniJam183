@@ -7,8 +7,7 @@ const SPAWN_COUNT = 30
 
 func _ready() -> void:
 	SaveData.load_game()
-	print("Main menu loaded")
-
+	
 	# Spawn floating chars
 	for i in range(SPAWN_COUNT):
 		spawn_floating_char()

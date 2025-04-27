@@ -79,6 +79,7 @@ func _on_level_pressed(level_index: int):
 	get_tree().current_scene = level_scene
 	
 func update_lives():
+	print(SaveData.lives)
 	for i in SaveData.lives:
 		var heart = Label.new()
 		heart.text = "♡"
