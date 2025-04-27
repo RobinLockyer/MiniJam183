@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw8g0atn3h3v7"]
+
+[ext_resource type="Script" uid="uid://rmy2qb5qpl0b" path="res://scripts/CardDisplay.gd" id="1_xss0s"]
+
+[node name="CardDisplay" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xss0s")
+
+[node name="Card" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Redraw" type="Button" parent="."]
+visible = false
+layout_mode = 2
+text = "Redraw"
