@@ -15,8 +15,12 @@ func _on_delete_save_button_pressed() -> void:
 	if FileAccess.file_exists(SaveData.save_path):
 		var dir = DirAccess.open("user://")
 		if dir:
-			dir.remove("save_game.cfg")
-			print("Save file deleted.")
+			var error = dir.remove(SaveData.save_path.get_file())
+			if error == OK:
+				print("Save file deleted.")
+				SaveData.reset()
+			else:
+				print("Failed to delete save file. Error code:", error)
 		else:
 			print("Failed to open user directory.")
 	else:
