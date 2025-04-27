@@ -11,7 +11,7 @@ extends Control
 var level_index: int = 0
 var is_boss: bool = false
 var target_number: int = 0
-var current: float = 0
+var current: int = 0
 var draw_pile: Array[Card]
 var hand_size: int = 6
 var error_margin: int = 0
