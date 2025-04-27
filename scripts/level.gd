@@ -5,6 +5,7 @@ extends Control
 @export var hand_container: Node
 @export var victory_container: Node
 @export var points_value_label: Label
+@export var timer: Timer
 
 var level_index: int = 0
 var is_boss: bool = false
@@ -47,6 +48,9 @@ func card_clicked(card_display: CardDisplay) -> void:
 		points_value_label.text = str(points)
 		SaveData.current_level += 1
 		SaveData.save_game()
+		timer.paused = true
+	elif hand_container.get_children().size() == 0:
+		get_tree().change_scene_to_file("res://scenes/GameOver.tscn")
 		
 func card_redraw(card_display: CardDisplay) -> void:
 	if remaining_redraws > 0:
