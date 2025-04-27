@@ -3,13 +3,16 @@ extends Node
 var save_path: String = "user://save_game.cfg"
 var config: ConfigFile = ConfigFile.new()
 
+var deck: Array[Card] = []
+var max_lives: int = 5
+var boss_levels: Array = [4, 8]
+var is_audio_muted = false
+
+# config vars
 var current_level: int = 0
 var points: int = 0
-var levels: Array = []
-var boss_levels: Array = [4, 8]
-var deck: Array[Card] = []
 var lives: int = 3
-var max_lives: int = 5
+var levels: Array = []
 
 func _ready() -> void:
 	if deck.is_empty():

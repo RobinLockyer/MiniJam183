@@ -4,11 +4,14 @@ extends Control
 @onready var delete_save_button: Button = $Panel/CenterContainer/VBoxContainer/DeleteSaveButton
 
 func _ready() -> void:
+	mute_checkbox.button_pressed = SaveData.is_audio_muted
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), SaveData.is_audio_muted)
 	mute_checkbox.connect("toggled", Callable(self, "_on_mute_checkbox_toggled"))
 	delete_save_button.connect("pressed", Callable(self, "_on_delete_save_button_pressed"))
 
 func _on_mute_checkbox_toggled(button_pressed: bool) -> void:
 	AudioServer.set_bus_mute(AudioServer.get_bus_index("Master"), button_pressed)
+	SaveData.is_audio_muted = button_pressed
 	print("Audio muted" if button_pressed else "Audio unmuted")
 
 func _on_delete_save_button_pressed() -> void:
