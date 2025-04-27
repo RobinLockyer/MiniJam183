@@ -50,4 +50,5 @@ func buy_life() -> void:
 	if SaveData.points >= life_cost and SaveData.lives < SaveData.max_lives:
 		SaveData.points -= life_cost
 		SaveData.lives += 1
+		SaveData.save_game()
 		update_label_points_value()
