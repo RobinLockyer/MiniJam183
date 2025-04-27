@@ -23,10 +23,7 @@ EscToMain="*res://scripts/EscToMain.gd"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
 window/size/resizable=false
-window/size/borderless=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_width"
 
