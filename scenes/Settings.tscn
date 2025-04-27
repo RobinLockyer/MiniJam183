@@ -79,12 +79,15 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -395.5
-offset_top = -149.0
-offset_right = 395.5
+offset_left = -169.0
+offset_top = -108.0
+offset_right = 622.0
+offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 0
-text = "\"Galactic Rap \" Kevin MacLeod (incompetech.com)
+theme_override_font_sizes/font_size = 12
+text = "Resource Credits:
+\"Galactic Rap \" Kevin MacLeod (incompetech.com)
 Licensed under Creative Commons: By Attribution 4.0 License
 http://creativecommons.org/licenses/by/4.0/
 \"The 8-Bit Sky\" by Sounds Like An Earful (soundslikeanearful.com)"
