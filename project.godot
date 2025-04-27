@@ -23,8 +23,9 @@ EscToMain="*res://scripts/EscToMain.gd"
 
 [display]
 
+window/size/viewport_width=1200
+window/size/viewport_height=680
 window/stretch/mode="viewport"
-window/stretch/aspect="keep_width"
 
 [rendering]
 
