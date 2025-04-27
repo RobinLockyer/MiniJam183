@@ -18,13 +18,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_qifjx")
 script = ExtResource("1_k5jlv")
-label_target_value = NodePath("Panel/VBoxContainer/TargetContainer/label_target_value")
-label_current_value = NodePath("Panel/VBoxContainer/CurrentContainer/label_current_value")
-hand_container = NodePath("Panel/VBoxContainer/HandContainer")
+label_target_value = NodePath("Panel/PlayContainer/TargetContainer/label_target_value")
+label_current_value = NodePath("Panel/PlayContainer/CurrentContainer/label_current_value")
+hand_container = NodePath("Panel/PlayContainer/HandContainer")
 victory_container = NodePath("Panel/VictoryContainer")
 points_value_label = NodePath("Panel/VictoryContainer/VBoxContainer/BoxContainer/points_value_label")
 timer = NodePath("Panel/Timer/Timer")
-label_error_value = NodePath("Panel/VBoxContainer/TargetContainer/label_error_value")
+label_error_value = NodePath("Panel/PlayContainer/TargetContainer/label_error_value")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -35,7 +35,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_qifjx")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="PlayContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -49,37 +49,37 @@ offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TargetContainer" type="BoxContainer" parent="Panel/VBoxContainer"]
+[node name="TargetContainer" type="BoxContainer" parent="Panel/PlayContainer"]
 layout_mode = 2
 
-[node name="label_target" type="Label" parent="Panel/VBoxContainer/TargetContainer"]
+[node name="label_target" type="Label" parent="Panel/PlayContainer/TargetContainer"]
 layout_mode = 2
 text = "Target:"
 label_settings = ExtResource("2_k5jlv")
 
-[node name="label_target_value" type="Label" parent="Panel/VBoxContainer/TargetContainer"]
+[node name="label_target_value" type="Label" parent="Panel/PlayContainer/TargetContainer"]
 layout_mode = 2
 label_settings = ExtResource("2_k5jlv")
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer/TargetContainer"]
+[node name="Label" type="Label" parent="Panel/PlayContainer/TargetContainer"]
 layout_mode = 2
 text = "±"
 
-[node name="label_error_value" type="Label" parent="Panel/VBoxContainer/TargetContainer"]
+[node name="label_error_value" type="Label" parent="Panel/PlayContainer/TargetContainer"]
 layout_mode = 2
 
-[node name="CurrentContainer" type="BoxContainer" parent="Panel/VBoxContainer"]
+[node name="CurrentContainer" type="BoxContainer" parent="Panel/PlayContainer"]
 layout_mode = 2
 
-[node name="label_current" type="Label" parent="Panel/VBoxContainer/CurrentContainer"]
+[node name="label_current" type="Label" parent="Panel/PlayContainer/CurrentContainer"]
 layout_mode = 2
 text = "Current:"
 
-[node name="label_current_value" type="Label" parent="Panel/VBoxContainer/CurrentContainer"]
+[node name="label_current_value" type="Label" parent="Panel/PlayContainer/CurrentContainer"]
 layout_mode = 2
 label_settings = ExtResource("2_k5jlv")
 
-[node name="HandContainer" type="BoxContainer" parent="Panel/VBoxContainer"]
+[node name="HandContainer" type="BoxContainer" parent="Panel/PlayContainer"]
 layout_mode = 2
 
 [node name="VictoryContainer" type="PanelContainer" parent="Panel"]

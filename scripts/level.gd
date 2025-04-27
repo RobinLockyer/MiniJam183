@@ -37,7 +37,6 @@ func draw_card() -> void:
 		card_display.set_redraw_visible(true)
 	hand_container.add_child(card_display)
 		
-	
 func card_clicked(card_display: CardDisplay) -> void:
 	current = card_display.card.operation.call(current, card_display.card.value)
 	update_current_value_label()
@@ -51,6 +50,13 @@ func card_clicked(card_display: CardDisplay) -> void:
 		SaveData.current_level += 1
 		SaveData.save_game()
 		timer.paused = true
+		# disable play area recursively
+		var nodes_to_check := [$Panel/PlayContainer]
+		while nodes_to_check.size() > 0:
+			var node = nodes_to_check.pop_front()
+			if "disabled" in node:
+				node.disabled = true
+			nodes_to_check += node.get_children()
 	elif hand_container.get_children().size() == 0:
 		get_tree().change_scene_to_file("res://scenes/GameOver.tscn")
 		
