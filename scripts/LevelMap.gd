@@ -26,6 +26,7 @@ func _ready():
 
 	update_level_buttons()
 	update_lives()
+	update_points()
 
 func update_level_buttons():
 	var current_level = SaveData.current_level
@@ -82,3 +83,6 @@ func update_lives():
 		var heart = Label.new()
 		heart.text = "♡"
 		$LivesContainer/HeartsContainer.add_child(heart)
+		
+func update_points():
+	$PointsContainer/PointsValueContainer/PointsValueLabel.text = "+ " + str(SaveData.points) 

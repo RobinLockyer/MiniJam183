@@ -95,6 +95,24 @@ custom_minimum_size = Vector2(250, 200)
 layout_mode = 2
 theme = ExtResource("1_y2l36")
 
+[node name="PointsContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 40.0
+offset_top = 24.0
+offset_right = 164.0
+offset_bottom = 119.0
+
+[node name="PointsLabel" type="Label" parent="PointsContainer"]
+layout_mode = 2
+text = "Points"
+
+[node name="PointsValueContainer" type="HBoxContainer" parent="PointsContainer"]
+layout_mode = 2
+
+[node name="PointsValueLabel" type="Label" parent="PointsContainer/PointsValueContainer"]
+layout_mode = 2
+text = "+"
+
 [node name="LivesContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 991.0
