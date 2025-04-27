@@ -3,6 +3,8 @@ extends Control
 @export var label_target_value: Label
 @export var label_current_value: Label
 @export var hand_container: Node
+@export var victory_container: Node
+@export var points_value_label: Label
 
 var level_index: int = 0
 var is_boss: bool = false
@@ -39,10 +41,10 @@ func card_clicked(card_display: CardDisplay) -> void:
 	hand_container.remove_child(card_display)
 	var target_diff: int = abs(target_number - current)
 	if target_diff <= error_margin:
-		$VictoryContainer.visible = true
+		victory_container.visible = true
 		var points = error_margin - target_diff + level_index + 1
 		SaveData.points += points
-		$VictoryContainer/VBoxContainer/BoxContainer/points_value_label.text = str(points)
+		points_value_label.text = str(points)
 		SaveData.current_level += 1
 		SaveData.save_game()
 		
