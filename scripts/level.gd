@@ -61,5 +61,5 @@ func update_current_value_label():
 func continue_to_shop() -> void:
 	get_tree().change_scene_to_file("res://scenes/Shop.tscn")
 	
-func open_deckview() ->void:
+func open_deckview() -> void:
 	DeckView.open(self, draw_pile)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://6ka34578aims"]
+[gd_scene load_steps=6 format=3 uid="uid://6ka34578aims"]
 
 [ext_resource type="Script" uid="uid://hk1ecovlpd5d" path="res://scripts/level.gd" id="1_k5jlv"]
 [ext_resource type="LabelSettings" uid="uid://k2phke6dm5xs" path="res://resources/LevelTargetLabelSettings.tres" id="2_k5jlv"]
 [ext_resource type="AudioStream" uid="uid://d0gxv77aoy3to" path="res://resources/Galactic Rap.mp3" id="3_6vs76"]
+[ext_resource type="Script" uid="uid://chldx5amhl23o" path="res://scenes/Timer.gd" id="4_kl8ac"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k5jlv"]
 font_size = 30
@@ -114,5 +115,21 @@ text = "Deck"
 stream = ExtResource("3_6vs76")
 autoplay = true
 
+[node name="Timer" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+script = ExtResource("4_kl8ac")
+
+[node name="Timer" type="Timer" parent="Timer"]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
 [connection signal="pressed" from="VictoryContainer/VBoxContainer/Button" to="." method="continue_to_shop"]
 [connection signal="pressed" from="ViewDeckButton" to="." method="open_deckview"]
+[connection signal="timeout" from="Timer/Timer" to="Timer" method="timeout"]
