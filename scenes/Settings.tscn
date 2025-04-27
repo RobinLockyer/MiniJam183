@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dosw2mq5lqkpy"]
+[gd_scene load_steps=2 format=3 uid="uid://dosw2mq5lqkpy"]
+
+[ext_resource type="Script" uid="uid://jorrm1pjm4pe" path="res://scripts/Settings.gd" id="1_rbmmp"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rbmmp")
 
 [node name="SettingsTitle" type="RichTextLabel" parent="."]
 layout_mode = 1
@@ -14,11 +17,41 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_top = -11.5
-offset_bottom = 11.5
+offset_left = 14.0
+offset_top = -70.0
+offset_right = 14.0
+offset_bottom = -47.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Settings"
+text = "A game by Paulo and Robin for MiniJam183 with theme \"Calculations\""
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -20.0
+offset_right = 59.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="MuteAudioCheckbox" type="CheckBox" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mute Audio"
+
+[node name="DeleteSaveButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Delete Save"
+
+[connection signal="toggled" from="CenterContainer/VBoxContainer/MuteAudioCheckbox" to="." method="_on_mute_checkbox_toggled"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/DeleteSaveButton" to="." method="_on_delete_save_button_pressed"]

@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cr2a5utj6wen8"]
+[gd_scene load_steps=5 format=3 uid="uid://cr2a5utj6wen8"]
 
 [ext_resource type="Script" uid="uid://cpcr1po58rplc" path="res://scripts/Main.gd" id="1_elqb8"]
 [ext_resource type="AudioStream" uid="uid://4ok60fftg8h" path="res://resources/menu.mp3" id="2_rvslj"]
+[ext_resource type="AudioStream" uid="uid://bauwk5hn2xqik" path="res://resources/hover.mp3" id="3_rarhs"]
+[ext_resource type="AudioStream" uid="uid://blnou6ickk6ps" path="res://resources/click.mp3" id="4_vcsgt"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -21,6 +23,7 @@ anchors_preset = -1
 anchor_top = 0.302
 anchor_right = 1.0
 anchor_bottom = 0.302
+offset_top = -48.0
 offset_right = 1.0
 offset_bottom = 69.0
 theme_override_font_sizes/normal_font_size = 50
@@ -30,6 +33,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(140, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -44,16 +48,36 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PlayButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 text = "Play"
 
+[node name="DeckButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+text = "Deck"
+
 [node name="SettingsButton" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 text = "Settings"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_rvslj")
 autoplay = true
 
+[node name="MenuButtonHover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rarhs")
+
+[node name="MenuButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_vcsgt")
+
+[connection signal="mouse_entered" from="VBoxContainer/PlayButton" to="MenuButtonHover" method="play"]
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="MenuButtonClick" method="play"]
+[connection signal="mouse_entered" from="VBoxContainer/DeckButton" to="MenuButtonHover" method="play"]
+[connection signal="pressed" from="VBoxContainer/DeckButton" to="." method="_on_deck_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/DeckButton" to="MenuButtonClick" method="play"]
+[connection signal="mouse_entered" from="VBoxContainer/SettingsButton" to="MenuButtonHover" method="play"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="MenuButtonClick" method="play"]
