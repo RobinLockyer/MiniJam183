@@ -71,5 +71,22 @@ theme = ExtResource("1_i47rn")
 theme_override_styles/normal = SubResource("StyleBoxFlat_i47rn")
 text = "Delete Save"
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -395.5
+offset_top = -149.0
+offset_right = 395.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "\"Galactic Rap \" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+\"The 8-Bit Sky\" by Sounds Like An Earful (soundslikeanearful.com)"
+
 [connection signal="toggled" from="Panel/CenterContainer/VBoxContainer/MuteAudioCheckbox" to="." method="_on_mute_checkbox_toggled"]
 [connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/DeleteSaveButton" to="." method="_on_delete_save_button_pressed"]
