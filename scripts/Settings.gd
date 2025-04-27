@@ -1,7 +1,7 @@
 extends Control
 
-@onready var mute_checkbox: CheckBox = $CenterContainer/VBoxContainer/MuteAudioCheckbox
-@onready var delete_save_button: Button = $CenterContainer/VBoxContainer/DeleteSaveButton
+@onready var mute_checkbox: CheckBox = $Panel/CenterContainer/VBoxContainer/MuteAudioCheckbox
+@onready var delete_save_button: Button = $Panel/CenterContainer/VBoxContainer/DeleteSaveButton
 
 func _ready() -> void:
 	mute_checkbox.connect("toggled", Callable(self, "_on_mute_checkbox_toggled"))

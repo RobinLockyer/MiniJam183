@@ -6,15 +6,15 @@ var boss_levels: Array = [4, 8]
 func _ready():
 	SaveData.load_game()
 	level_buttons = [
-		$CenterContainer/MarginContainer/GridContainer/Level1Button,
-		$CenterContainer/MarginContainer/GridContainer/Level2Button,
-		$CenterContainer/MarginContainer/GridContainer/Level3Button,
-		$CenterContainer/MarginContainer/GridContainer/Level4Button,
-		$CenterContainer/MarginContainer/GridContainer/BossButton,
-		$CenterContainer/MarginContainer/GridContainer/Level6Button,
-		$CenterContainer/MarginContainer/GridContainer/Level7Button,
-		$CenterContainer/MarginContainer/GridContainer/Level8Button,
-		$CenterContainer/MarginContainer/GridContainer/FinalBossButton
+		$Panel/CenterContainer/MarginContainer/GridContainer/Level1Button,
+		$Panel/CenterContainer/MarginContainer/GridContainer/Level2Button,
+		$Panel/CenterContainer/MarginContainer/GridContainer/Level3Button,
+		$Panel/CenterContainer/MarginContainer/GridContainer/Level4Button,
+		$Panel/CenterContainer/MarginContainer/GridContainer/BossButton,
+		$Panel/CenterContainer/MarginContainer/GridContainer/Level6Button,
+		$Panel/CenterContainer/MarginContainer/GridContainer/Level7Button,
+		$Panel/CenterContainer/MarginContainer/GridContainer/Level8Button,
+		$Panel/CenterContainer/MarginContainer/GridContainer/FinalBossButton
 	]
 
 	for i in range(level_buttons.size()):
@@ -45,34 +45,20 @@ func update_level_buttons():
 		button.mouse_default_cursor_shape = Control.CURSOR_ARROW
 		button.tooltip_text = "Locked!"
 		button.text = "?"
-		button.modulate = Color(1, 1, 1, 0.5) # Faded grey
 
 		if is_unlocked:
 			button.text = "Level %d\nValue: %d" % [i + 1, value]
 			if is_boss:
-				button.text += "\n(Boss)"
-
+				button.text += "\n ☠"
 			if is_completed:
-				button.modulate = Color(0.4, 1, 0.4, 1) # Green
+				button.text = button.text + "\n ✓"
 				button.tooltip_text = "Completed!"
 			elif is_current:
 				button.tooltip_text = "This is the current level!"
 				button.disabled = false
 				button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
-				# Border
-				var style = StyleBoxFlat.new()
-				style.set_draw_center(true)
-				style.border_color = Color(1, 0.3, 0.4, 1) if is_boss else Color(0.4, 1, 0.4, 1) # Green border or Red boss border
-				style.border_width_top = 4
-				style.border_width_bottom = 4
-				style.border_width_left = 4
-				style.border_width_right = 4
-				button.add_theme_stylebox_override("normal", style)
-				button.add_theme_stylebox_override("hover", style)
-				button.add_theme_stylebox_override("pressed", style)
-				button.add_theme_stylebox_override("focus", style)
 			elif is_next:
-				button.modulate = Color(1, 1, 1, 1) # White for next
+				button.text = button.text + "\n 🔒"
 				button.tooltip_text = "This is the next level!"
 
 func _on_level_pressed(level_index: int):

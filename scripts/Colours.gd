@@ -1,7 +1,7 @@
 extends Node
 
-# TODO: Game jam colour restriction
-const PRIMARY = Color(1, 1, 1, 1)       
-const SECONDARY = Color(0.5, 0.7, 1, 1)
-const ACCENT = Color(1, 0.3, 0.3, 1)
-const BACKGROUND = Color(0.1, 0.1, 0.1, 1)
+# Game jam colour restriction
+const PRIMARY = Color(0xdadada)       
+const SECONDARY = Color(0x30303d)
+const ACCENT = Color(0x7b7aa4)
+const BACKGROUND = Color(0x141319)
