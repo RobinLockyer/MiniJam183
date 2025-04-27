@@ -25,8 +25,14 @@ func _ready() -> void:
 	update_current_value_label()
 	draw_pile = SaveData.deck.duplicate()
 	draw_pile.shuffle()
+	
+	if is_boss:
+		$Panel/BossDebuffsContainer.visible = true
+		apply_boss_debuffs()
+	
 	for i in hand_size:
 		draw_card()
+
 		
 func draw_card() -> void:
 	var card_display: CardDisplay = card_display_scene.instantiate()
@@ -77,3 +83,36 @@ func continue_to_shop() -> void:
 	
 func open_deckview() -> void:
 	DeckView.open(self, draw_pile)
+	
+func apply_boss_debuffs() -> void:
+	print("Boss level! Rolling debuffs...")
+	var debuffs = [
+		Callable(self, "debuff_reduce_time"),
+		Callable(self, "debuff_halved_card_values"),
+		Callable(self, "debuff_reduce_redraws")
+	]
+	debuffs.shuffle()
+
+	var num_debuffs = randi_range(1, debuffs.size())
+	for i in num_debuffs:
+		debuffs[i].call()
+
+func debuff_reduce_time() -> void:
+	add_debuff_label("Reduced timer!")
+	timer.wait_time *= 0.7
+	timer.start()
+
+func debuff_halved_card_values() -> void:
+	add_debuff_label("Card values halved!")
+	for card in draw_pile:
+		card.value /= 2
+
+func debuff_reduce_redraws() -> void:
+	add_debuff_label("Reduced redraws!")
+	remaining_redraws = 1
+
+func add_debuff_label(text: String) -> void:
+	var label = Label.new()
+	label.text = "↳ " + text
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	$Panel/BossDebuffsContainer/BossDebuffsListContainer.add_child(label)
