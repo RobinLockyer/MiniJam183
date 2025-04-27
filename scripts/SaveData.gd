@@ -56,6 +56,7 @@ func generate_levels() -> void:
 	for i in range(9):
 		var level_data = {
 			"value": 24 if i == 0 else randi_range(0, 100),
-			"is_boss": boss_levels.has(i)
+			"is_boss": boss_levels.has(i),
+			"error_margin": 9 - i
 		}
 		levels.append(level_data)

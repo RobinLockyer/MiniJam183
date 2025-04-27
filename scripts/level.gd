@@ -6,6 +6,7 @@ extends Control
 @export var victory_container: Node
 @export var points_value_label: Label
 @export var timer: Timer
+@export var label_error_value: Label
 
 var level_index: int = 0
 var is_boss: bool = false
@@ -20,6 +21,7 @@ var card_display_scene: Resource = preload("res://scenes/CardDisplay.tscn")
 
 func _ready() -> void:
 	label_target_value.text = str(target_number)
+	label_error_value.text = str(error_margin)
 	update_current_value_label()
 	draw_pile = SaveData.deck.duplicate()
 	draw_pile.shuffle()

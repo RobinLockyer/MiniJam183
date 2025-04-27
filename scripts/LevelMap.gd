@@ -70,6 +70,7 @@ func _on_level_pressed(level_index: int):
 	level_scene.level_index = level_index
 	level_scene.is_boss = level_data["is_boss"]
 	level_scene.target_number = level_data["value"]
+	level_scene.error_margin = level_data["error_margin"]
 
 	get_tree().root.add_child(level_scene)
 	get_tree().current_scene.queue_free()
