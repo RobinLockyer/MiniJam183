@@ -4,7 +4,7 @@
 [ext_resource type="LabelSettings" uid="uid://k2phke6dm5xs" path="res://resources/LevelTargetLabelSettings.tres" id="2_k5jlv"]
 [ext_resource type="Theme" uid="uid://b3y7syvpbandw" path="res://resources/4colour.tres" id="2_qifjx"]
 [ext_resource type="AudioStream" uid="uid://d0gxv77aoy3to" path="res://resources/Galactic Rap.mp3" id="3_6vs76"]
-[ext_resource type="Script" uid="uid://chldx5amhl23o" path="res://scenes/Timer.gd" id="4_kl8ac"]
+[ext_resource type="Script" uid="uid://chldx5amhl23o" path="res://Timer.gd" id="4_kl8ac"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k5jlv"]
 font_size = 30
