@@ -9,6 +9,7 @@ var levels: Array = []
 var boss_levels: Array = [4, 8]
 var deck: Array[Card] = []
 var lives: int = 3
+var max_lives: int = 5
 
 func _ready() -> void:
 	if deck.is_empty():

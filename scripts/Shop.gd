@@ -5,6 +5,7 @@ extends Control
 
 @export var num_cards_available: int = 5
 @export var remove_card_cost: int = 5
+@export var life_cost = 10
 const card_display_scene: Resource = preload("res://scenes/CardDisplay.tscn")
 
 func _ready() -> void:
@@ -44,3 +45,9 @@ func open_remove_card_menu() -> void:
 func remove_card(card_display: CardDisplay) -> void:
 	SaveData.deck.remove_at(card_display.index)
 	$DeckView.queue_free()
+
+func buy_life() -> void:
+	if SaveData.points >= life_cost and SaveData.lives < SaveData.max_lives:
+		SaveData.points -= life_cost
+		SaveData.lives += 1
+		update_label_points_value()
