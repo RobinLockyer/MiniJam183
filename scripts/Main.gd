@@ -22,7 +22,7 @@ func spawn_floating_char():
 		randf_range(0, screen_size.y)
 	)
 	add_child(char_instance)
-	char_instance.z_index = -1 # Make sure it's behind buttons
+	char_instance.z_index = 1 # Make sure it's behind buttons
 	
 func _on_play_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/LevelMap.tscn")

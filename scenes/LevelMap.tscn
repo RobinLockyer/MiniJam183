@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxwrmg5r0en12"]
+[gd_scene load_steps=3 format=3 uid="uid://bxwrmg5r0en12"]
 
 [ext_resource type="Script" uid="uid://c61i5n7tl01ku" path="res://scripts/LevelMap.gd" id="1_72jfs"]
+[ext_resource type="Theme" uid="uid://b3y7syvpbandw" path="res://resources/4colour.tres" id="1_y2l36"]
 
 [node name="LevelMap" type="Control"]
 layout_mode = 3
@@ -9,65 +10,87 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_y2l36")
 script = ExtResource("1_72jfs")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_y2l36")
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -379.0
-offset_top = -304.0
-offset_right = 379.0
-offset_bottom = 304.0
+offset_left = -479.0
+offset_top = -404.0
+offset_right = 479.0
+offset_bottom = 404.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_y2l36")
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Panel/CenterContainer"]
 layout_mode = 2
+theme = ExtResource("1_y2l36")
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="GridContainer" type="GridContainer" parent="CenterContainer/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="Panel/CenterContainer/MarginContainer"]
 layout_mode = 2
+theme = ExtResource("1_y2l36")
 columns = 3
 
-[node name="Level1Button" type="Button" parent="CenterContainer/MarginContainer/GridContainer"]
+[node name="Level1Button" type="Button" parent="Panel/CenterContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(250, 200)
 layout_mode = 2
+theme = ExtResource("1_y2l36")
 
-[node name="Level2Button" type="Button" parent="CenterContainer/MarginContainer/GridContainer"]
+[node name="Level2Button" type="Button" parent="Panel/CenterContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(250, 200)
 layout_mode = 2
+theme = ExtResource("1_y2l36")
 
-[node name="Level3Button" type="Button" parent="CenterContainer/MarginContainer/GridContainer"]
+[node name="Level3Button" type="Button" parent="Panel/CenterContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(250, 200)
 layout_mode = 2
+theme = ExtResource("1_y2l36")
 
-[node name="Level4Button" type="Button" parent="CenterContainer/MarginContainer/GridContainer"]
+[node name="Level4Button" type="Button" parent="Panel/CenterContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(250, 200)
 layout_mode = 2
+theme = ExtResource("1_y2l36")
 
-[node name="BossButton" type="Button" parent="CenterContainer/MarginContainer/GridContainer"]
+[node name="BossButton" type="Button" parent="Panel/CenterContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(250, 200)
 layout_mode = 2
+theme = ExtResource("1_y2l36")
 
-[node name="Level6Button" type="Button" parent="CenterContainer/MarginContainer/GridContainer"]
+[node name="Level6Button" type="Button" parent="Panel/CenterContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(250, 200)
 layout_mode = 2
+theme = ExtResource("1_y2l36")
 
-[node name="Level7Button" type="Button" parent="CenterContainer/MarginContainer/GridContainer"]
+[node name="Level7Button" type="Button" parent="Panel/CenterContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(250, 200)
 layout_mode = 2
+theme = ExtResource("1_y2l36")
 
-[node name="Level8Button" type="Button" parent="CenterContainer/MarginContainer/GridContainer"]
+[node name="Level8Button" type="Button" parent="Panel/CenterContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(250, 200)
 layout_mode = 2
+theme = ExtResource("1_y2l36")
 
-[node name="FinalBossButton" type="Button" parent="CenterContainer/MarginContainer/GridContainer"]
+[node name="FinalBossButton" type="Button" parent="Panel/CenterContainer/MarginContainer/GridContainer"]
 custom_minimum_size = Vector2(250, 200)
 layout_mode = 2
+theme = ExtResource("1_y2l36")
