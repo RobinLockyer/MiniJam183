@@ -9,7 +9,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_k5jlv"]
 font_size = 30
 
-[node name="Level" type="Control" node_paths=PackedStringArray("label_target_value", "label_current_value", "hand_container")]
+[node name="Level" type="Control" node_paths=PackedStringArray("label_target_value", "label_current_value", "hand_container", "victory_container", "points_value_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,6 +21,8 @@ script = ExtResource("1_k5jlv")
 label_target_value = NodePath("Panel/VBoxContainer/TargetContainer/label_target_value")
 label_current_value = NodePath("Panel/VBoxContainer/CurrentContainer/label_current_value")
 hand_container = NodePath("Panel/VBoxContainer/HandContainer")
+victory_container = NodePath("Panel/VictoryContainer")
+points_value_label = NodePath("Panel/VictoryContainer/VBoxContainer/BoxContainer/points_value_label")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
