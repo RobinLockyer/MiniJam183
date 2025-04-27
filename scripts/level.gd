@@ -32,7 +32,6 @@ func _ready() -> void:
 	
 	for i in hand_size:
 		draw_card()
-
 		
 func draw_card() -> void:
 	var card_display: CardDisplay = card_display_scene.instantiate()
