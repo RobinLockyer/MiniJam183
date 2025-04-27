@@ -7,23 +7,11 @@ var current_level: int = 0
 var points: int = 0
 var levels: Array = []
 var boss_levels: Array = [4, 8]
-var deck: Array[Card] = [
-	Card.new(1, Card.add),
-	Card.new(2, Card.add),
-	Card.new(3, Card.add),
-	Card.new(4, Card.add),
-	Card.new(5, Card.add),
-	Card.new(6, Card.add),
-	Card.new(7, Card.add),
-	Card.new(8, Card.add),
-	Card.new(9, Card.add),
-	Card.new(1, Card.subtract),
-	Card.new(2, Card.subtract),
-	Card.new(2, Card.multiply),
-	Card.new(2, Card.multiply),
-	Card.new(3, Card.multiply),
-	Card.new(2, Card.divide),
-]
+var deck: Array[Card] = []
+
+func _ready() -> void:
+	if deck.is_empty():
+		reset_deck()
 
 func save_game() -> void:
 	config.set_value("game", "current_level", current_level)
@@ -45,7 +33,6 @@ func load_game() -> void:
 			save_game()
 		else:
 			print("Game and levels loaded!")
-
 	else:
 		print("No save file found. Generating default save...")
 		generate_levels()
@@ -60,3 +47,33 @@ func generate_levels() -> void:
 			"error_margin": 9 - i
 		}
 		levels.append(level_data)
+
+func reset() -> void:
+	config = ConfigFile.new()
+	current_level = 0
+	points = 0
+	levels.clear()
+	reset_deck()
+
+func reset_deck() -> void:
+	deck.clear()
+	deck.append_array(get_default_deck())
+
+func get_default_deck() -> Array[Card]:
+	return [
+		Card.new(1, Card.add),
+		Card.new(2, Card.add),
+		Card.new(3, Card.add),
+		Card.new(4, Card.add),
+		Card.new(5, Card.add),
+		Card.new(6, Card.add),
+		Card.new(7, Card.add),
+		Card.new(8, Card.add),
+		Card.new(9, Card.add),
+		Card.new(1, Card.subtract),
+		Card.new(2, Card.subtract),
+		Card.new(2, Card.multiply),
+		Card.new(2, Card.multiply),
+		Card.new(3, Card.multiply),
+		Card.new(2, Card.divide),
+	]
