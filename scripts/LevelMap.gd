@@ -25,6 +25,7 @@ func _ready():
 			button.connect("pressed", Callable(self, "_on_level_pressed").bind(i))
 
 	update_level_buttons()
+	update_lives()
 
 func update_level_buttons():
 	var current_level = SaveData.current_level
@@ -43,13 +44,13 @@ func update_level_buttons():
 		# Default (Locked)
 		button.disabled = true
 		button.mouse_default_cursor_shape = Control.CURSOR_ARROW
-		button.tooltip_text = "Locked!"
+		button.tooltip_text = "Hidden!"
 		button.text = "?"
 
 		if is_unlocked:
 			button.text = "Level %d\nValue: %d" % [i + 1, value]
 			if is_boss:
-				button.text += "\n ☠"
+				button.text += "\n [Boss Level]"
 			if is_completed:
 				button.text = button.text + "\n ✓"
 				button.tooltip_text = "Completed!"
@@ -59,7 +60,7 @@ func update_level_buttons():
 				button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 			elif is_next:
 				button.text = button.text + "\n 🔒"
-				button.tooltip_text = "This is the next level!"
+				button.tooltip_text = "This is the next level! (Locked)"
 
 func _on_level_pressed(level_index: int):
 	print("Clicked level:", level_index)
@@ -75,3 +76,9 @@ func _on_level_pressed(level_index: int):
 	get_tree().root.add_child(level_scene)
 	get_tree().current_scene.queue_free()
 	get_tree().current_scene = level_scene
+	
+func update_lives():
+	for i in SaveData.lives:
+		var heart = Label.new()
+		heart.text = "♡"
+		$LivesContainer/HeartsContainer.add_child(heart)

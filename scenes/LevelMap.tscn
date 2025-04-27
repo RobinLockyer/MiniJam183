@@ -94,3 +94,17 @@ theme = ExtResource("1_y2l36")
 custom_minimum_size = Vector2(250, 200)
 layout_mode = 2
 theme = ExtResource("1_y2l36")
+
+[node name="LivesContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 991.0
+offset_top = 23.0
+offset_right = 1129.0
+offset_bottom = 97.0
+
+[node name="LivesLabel" type="Label" parent="LivesContainer"]
+layout_mode = 2
+text = "Lives"
+
+[node name="HeartsContainer" type="HBoxContainer" parent="LivesContainer"]
+layout_mode = 2
