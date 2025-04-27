@@ -8,6 +8,7 @@ var points: int = 0
 var levels: Array = []
 var boss_levels: Array = [4, 8]
 var deck: Array[Card] = []
+var lives: int = 3
 
 func _ready() -> void:
 	if deck.is_empty():
@@ -17,6 +18,7 @@ func save_game() -> void:
 	config.set_value("game", "current_level", current_level)
 	config.set_value("game", "points", points)
 	config.set_value("game", "levels", levels)
+	config.set_value("game", "lives", lives)
 	config.save(save_path)
 	print("Game saved!")
 
@@ -26,6 +28,7 @@ func load_game() -> void:
 		current_level = config.get_value("game", "current_level", 0)
 		points = config.get_value("game", "points", 0)
 		levels = config.get_value("game", "levels", [])
+		lives = config.get_value("game", "lives", 3)
 
 		if levels.is_empty():
 			print("No level data found, generating...")

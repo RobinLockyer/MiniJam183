@@ -6,7 +6,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_tvctj"]
 font_size = 70
 
-[node name="GameOver" type="Control" node_paths=PackedStringArray("score_label")]
+[node name="GameOver" type="Control" node_paths=PackedStringArray("score_label", "main_text", "continue_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +16,8 @@ grow_vertical = 2
 theme = ExtResource("1_6bcno")
 script = ExtResource("2_qae0b")
 score_label = NodePath("VBoxContainer/HBoxContainer/Label3")
+main_text = NodePath("VBoxContainer/MainText")
+continue_button = NodePath("Button")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -39,7 +41,7 @@ offset_bottom = 67.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer"]
+[node name="MainText" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Game Over"
 label_settings = SubResource("LabelSettings_tvctj")
@@ -53,3 +55,16 @@ text = "Score: "
 
 [node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -4.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 0

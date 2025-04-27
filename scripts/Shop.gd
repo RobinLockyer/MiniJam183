@@ -37,6 +37,7 @@ func update_label_points_value() -> void:
 func open_remove_card_menu() -> void:
 	if remove_card_cost <= SaveData.points:
 		SaveData.points -= remove_card_cost
+		update_label_points_value()
 		print("Opened")
 		DeckView.open(self, SaveData.deck, remove_card)
 		
